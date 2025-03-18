@@ -1,0 +1,49 @@
+.messageBox {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  background-color: var(--background-color);
+  color: var(--color);
+  border-radius: 10px;
+  max-height: 77vh;
+  overflow-y: auto;
+  border-radius: 10px;
+  padding-left: 10px;
+}
+
+.messageBox::-webkit-scrollbar {
+  width: 12px;
+}
+
+.messageBox::-webkit-scrollbar-track {
+  border: none;
+  box-shadow: none;
+}
+
+.messageBox::-webkit-scrollbar-thumb {
+  border-radius: 8px;
+  background-color: var(--color);
+}
+
+.chatBubbleAI {
+  background-color: #f1f1f1;
+  color: #000;
+  padding: 10px;
+  border-radius: 10px;
+  margin: 5px 0;
+  align-self: flex-start;
+  text-align: left;
+  max-width: 50%;
+}
+
+.chatBubbleUser {
+  background-color: #007bff;
+  color: #fff;
+  padding: 10px;
+  border-radius: 10px;
+  margin: 5px 0;
+  align-self: flex-end;
+  text-align: right;
+  max-width: 50%;
+  text-wrap: pretty;
+}
