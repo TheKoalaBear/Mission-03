@@ -4,7 +4,9 @@ import TextInput from "./TextInput";
 import styles from "./css/ChatWindow.module.css";
 
 const ChatWindow = () => {
-  const [messages, setMessages] = useState([]);
+  const [messages, setMessages] = useState([
+    "Interviewer: Enter a Job Title to begin.",
+  ]);
   const [history, setHistory] = useState([]);
 
   const addMessage = (message) => {
