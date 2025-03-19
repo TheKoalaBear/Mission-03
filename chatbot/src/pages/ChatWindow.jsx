@@ -9,7 +9,7 @@ const ChatWindow = () => {
   ]);
   const [history, setHistory] = useState([]);
 
-  const endpoint = [
+  const [endpoints, setEndpoints] = useState([
     "completeInterview",
     "interview",
     "interview",
@@ -17,7 +17,7 @@ const ChatWindow = () => {
     "interview",
     "interview",
     "startInterview",
-  ];
+  ]);
 
   const addMessage = (message) => {
     setMessages((prevMessages) => [...prevMessages, message]);
@@ -25,12 +25,18 @@ const ChatWindow = () => {
 
   const handlePostInterviewQuestion = async (question) => {
     try {
-      const response = await fetch(`http://localhost:4000/${endpoint.pop()}`, {
+      const response = await fetch(`http://localhost:4000/${endpoints.pop()}`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
         },
         body: JSON.stringify({ question }),
+      });
+
+      setEndpoints([...endpoints]);
+
+      endpoints.forEach((e) => {
+        console.log(e);
       });
 
       if (!response.ok) {
