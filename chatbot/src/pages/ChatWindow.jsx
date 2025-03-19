@@ -9,13 +9,23 @@ const ChatWindow = () => {
   ]);
   const [history, setHistory] = useState([]);
 
+  const endpoint = [
+    "completeInterview",
+    "interview",
+    "interview",
+    "interview",
+    "interview",
+    "interview",
+    "startInterview",
+  ];
+
   const addMessage = (message) => {
     setMessages((prevMessages) => [...prevMessages, message]);
   };
 
   const handlePostInterviewQuestion = async (question) => {
     try {
-      const response = await fetch("http://localhost:4000/app/simulate", {
+      const response = await fetch(`http://localhost:4000/${endpoint.pop()}`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
