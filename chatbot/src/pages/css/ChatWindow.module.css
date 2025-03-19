@@ -1,15 +1,19 @@
 .window {
-  height: 77vh;
-  justify-content: flex-end;
+      height: 77vh;
+      justify-content: flex-end;
 }
 
 .chatBotWindow {
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-end;
-  max-width: 900px;
-  width: 100vw;
-  height: 77vh;
-  border: 1px solid rgb(63, 63, 63);
-  border-radius: 10px;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      max-width: 900px;
+      width: 100vw;
+      height: 77vh;
+      border: 1px solid rgb(63, 63, 63);
+      border-radius: 10px;
+}
+
+.interviewButton {
+      margin-top: 54px;
 }
