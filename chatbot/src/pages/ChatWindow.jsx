@@ -8,6 +8,7 @@ const ChatWindow = () => {
     "Interviewer: Enter a Job Title to begin.",
   ]);
   const [history, setHistory] = useState([]);
+  const [showPopup, setShowPopup] = useState(false);
 
   const [endpoints, setEndpoints] = useState([
     "completeInterview",
@@ -35,20 +36,25 @@ const ChatWindow = () => {
 
       setEndpoints([...endpoints]);
 
-      endpoints.forEach((e) => {
-        console.log(e);
-      });
-
       if (!response.ok) {
         throw new Error("Failed to get response from server");
       }
 
       const data = await response.json();
       addMessage(`Interviewer: ${data.response}`);
+
+      // Show popup when the interview is complete
+      if (endpoints.length === 0) {
+        setShowPopup(true);
+      }
     } catch (error) {
       console.error(error);
       addMessage(`Error: ${error.message}`);
     }
+  };
+
+  const handleRestart = () => {
+    window.location.reload();
   };
 
   return (
@@ -60,6 +66,14 @@ const ChatWindow = () => {
         addMessage={addMessage}
         handlePostInterviewQuestion={handlePostInterviewQuestion}
       />
+      {showPopup && (
+        <div className={styles.popup}>
+          <div className={styles.popupContent}>
+            <p>Do you want to start again?</p>
+            <button onClick={handleRestart}>Restart</button>
+          </div>
+        </div>
+      )}
     </div>
   );
 };
